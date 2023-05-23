@@ -79,3 +79,16 @@ ul {
   background-color: cornflowerblue;
   color: white;
 }
+
+.breeds-subheader {
+  display: flex;
+  gap: 20px;
+
+}
+
+.breeds-subheader button {
+  background-color: cornsilk;
+  border: 1px solid transparent;
+  padding: 0 18px;
+  cursor: pointer;
+}
