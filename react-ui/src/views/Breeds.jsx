@@ -10,25 +10,34 @@ const Breeds = () => {
 
   const handleClick = (e) => {
     const value = e.target.dataset.breed;
-    let _selectedBreeds = []
+    let _selectedBreeds = [];
 
     if(selectedBreeds.indexOf(value) > -1) {
       _selectedBreeds = selectedBreeds.filter(breed => breed !== value)
-      setSelectedBreeds(_selectedBreeds)
+      setSelectedBreeds(_selectedBreeds);
     } else {
       _selectedBreeds = [...selectedBreeds, value];
     }
-    setSelectedBreeds(_selectedBreeds)
+    setSelectedBreeds(_selectedBreeds);
   };
 
   const breeds = data && data.map(breed => {
-    return <li data-breed={breed} key={breed} onClick={handleClick} >{breed}</li>
+    return (
+      <li 
+        className={selectedBreeds.indexOf(breed) > -1 ? 'active' : ''}
+        data-breed={breed} 
+        key={breed} 
+        onClick={handleClick} 
+      >
+        {breed}
+      </li>
+      )
   })
 
   return (
     <>
       <div>Breeds</div>
-      <ul>{breeds}</ul>
+      <ul className='breeds' >{breeds}</ul>
       {JSON.stringify(selectedBreeds)}
     </>
     )

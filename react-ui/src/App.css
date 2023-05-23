@@ -57,3 +57,25 @@ main {
   width: 90%;
   margin: 0 auto;
 }
+
+ul {
+  display: flex;
+  column-gap: 4px;
+  row-gap: 4px;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+.breeds li {
+  cursor: pointer;
+  padding: 20px 0;
+  background-color: aliceblue;
+  text-align: center;
+  width: 160px;
+}
+
+.breeds li.active {
+  background-color: cornflowerblue;
+  color: white;
+}
