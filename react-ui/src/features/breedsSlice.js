@@ -1,11 +1,25 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+const findAllBreeds = (data) => {
+  const breeds = Object.keys(data)
+  const subbreeds = [];
+  for(let i = 0; i < breeds.length; i++){
+    if(data[breeds[i]].length > 0) {
+      for(let j = 0; j < data[breeds[i]].length; j++){
+        subbreeds.push(`${breeds[i]}/${data[breeds[i]][j]}`)
+      }
+    }
+  }
+return [...breeds, ...subbreeds]
+}
+
 export const fetchBreeds = createAsyncThunk('breeds/all', async () => {
     const response = await fetch('https://dog.ceo/api/breeds/list/all');
     const data = await response.json();
+    const subbreeds = findAllBreeds(data.message)
     const breeds = Object.keys(data.message) 
   
-  return breeds;
+  return {parentBreeds:breeds, subBreeds: subbreeds};
 })
 
 export const breedsSlice = createSlice({

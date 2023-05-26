@@ -13,11 +13,11 @@ const root = createRoot(rootElement);
 store.dispatch(fetchBreeds());
 
 root.render(
-  <StrictMode>
+  // <StrictMode>
     <Provider store={store}>
       <BrowserRouter> 
         <App />
       </BrowserRouter>
     </Provider>
-  </StrictMode>
+  // </StrictMode>
 );

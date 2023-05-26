@@ -30,7 +30,8 @@ const Breeds = () => {
 
   const breeds =
     data &&
-    data.map((breed) => {
+    data.parentBreeds &&
+    data.parentBreeds.map((breed) => {
       return (
         <li
           className={selectedBreeds.indexOf(breed) > -1 ? "active" : ""}
